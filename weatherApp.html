@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css">
+   <style>
+    body{
+        background-image: url("https://www.bviddm.com/wp-content/uploads/2023/07/apps.16894.c02476d2-2378-4f60-8290-b6d4b3842643.79a2ef6a-4775-4c79-8d93-9caf077660eb.1bbd88a4-0a17-4750-91a0-cd7d98f58e9d-1-825x465@2x.png");
+    }
+        #title{
+            color: red;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            text-shadow: 10px 10px 5px black ;
+            font-family: Arial, sans-serif;
+        }
+        #title:hover{
+            font-size: 50px;
+        }
+        .citycon{
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        #city{
+            background-color: blanchedalmond;
+            text-align: center;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 5px 5px 3px black;
+        }
+        #city:hover{
+            background-color: aquamarine;
+           
+        }
+        .btncon{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        #wbtn{
+            padding: 10px;
+            border-radius: 8px;
+            background-color: rgb(128, 128, 230);
+        }
+        .rescon{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        #res{
+            color:black;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .icon{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+   </style>
+</head>
+<body>
+    <h1 id="title">WEATHER</h1>
+   <div class="citycon"> <input type="text" id="city" placeholder="enter city"></div>
+   <div class="btncon"> <button id="wbtn"><i class="fa-solid fa-cloud fa-beat"></i></button></div>
+   <div class="rescon"><h2 id="res"></h2></div>
+   <div class="icon"><h1 id="icon"></h1></div>
+
+   <script>
+        document.getElementById("wbtn").addEventListener("click",async()=>{
+            let city=document.getElementById("city").value;
+            let apikey="217499861ee897d9bb38604ebc16198d";
+            let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`
+
+            let response=await fetch(url)
+            let data=await response.json()
+            //let temp=data.main.temp
+            // if (temp<0) {
+            //     document.getElementById("icon").innerHTML="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE0o5R8kWjwNj4qIbhd6A2lVeHegZ_7X4ifQ&s"
+            // }
+            // else if(temp>1 && temp<35){
+            //     document.getElementById("icon").innerHTML="https://static.vecteezy.com/system/resources/previews/002/596/183/large_2x/blue-sky-and-clouds-wallpaper-background-and-sunny-day-free-photo.jpg"
+            // }
+            // else if(temp>36){
+            //     document.getElementById("icon").innerHTML="https://scitechdaily.com/images/Hot-Sun-Thermometer-Heatwave-Concept.jpg"
+            // }
+            document.getElementById("res").innerHTML=`Temprature in ${city} is ${data.main.temp}°C (feels like ${data.main.feels_like}°C) with humidity of ${data.main.humidity}% `;
+        })
+   </script>
+</body>
+</html>
