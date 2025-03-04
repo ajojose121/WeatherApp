@@ -77,16 +77,7 @@
 
             let response=await fetch(url)
             let data=await response.json()
-            //let temp=data.main.temp
-            // if (temp<0) {
-            //     document.getElementById("icon").innerHTML="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE0o5R8kWjwNj4qIbhd6A2lVeHegZ_7X4ifQ&s"
-            // }
-            // else if(temp>1 && temp<35){
-            //     document.getElementById("icon").innerHTML="https://static.vecteezy.com/system/resources/previews/002/596/183/large_2x/blue-sky-and-clouds-wallpaper-background-and-sunny-day-free-photo.jpg"
-            // }
-            // else if(temp>36){
-            //     document.getElementById("icon").innerHTML="https://scitechdaily.com/images/Hot-Sun-Thermometer-Heatwave-Concept.jpg"
-            // }
+          
             document.getElementById("res").innerHTML=`Temprature in ${city} is ${data.main.temp}°C (feels like ${data.main.feels_like}°C) with humidity of ${data.main.humidity}% `;
         })
    </script>
